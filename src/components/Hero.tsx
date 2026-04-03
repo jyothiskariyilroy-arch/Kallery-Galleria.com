@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-// The rendered Kallery Galleria building image (WhatsApp photo uploaded)
-const HERO_IMG = "/images/hero/1.jpg";
+import { images } from "@/lib/images";
 
 export default function Hero() {
   return (
@@ -12,10 +10,11 @@ export default function Hero() {
       {/* Background — rendered building image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={HERO_IMG}
+          src={images.hero}
           alt="Kallery Galleria"
           fill priority
           className="object-cover object-center"
+          unoptimized
           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-obsidian-950 via-obsidian-900 to-obsidian-800" />
@@ -49,7 +48,6 @@ export default function Hero() {
           <span className="text-ivory/90">Galleria</span>
         </motion.h1>
 
-        {/* STRONG BUSINESS HOOK */}
         <motion.p className="font-dm text-base md:text-lg text-ivory/70 mt-6 mb-2 leading-snug"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
           12,000 sq ft high-visibility commercial asset — <span className="text-gold">₹3.5L/month lease potential</span>

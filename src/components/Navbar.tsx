@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const links = [
@@ -7,6 +7,7 @@ const links = [
   { label: "Floors", href: "#floors" },
   { label: "Investment", href: "#investment" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Mockups", href: "#mockups" },
   { label: "Contact", href: "#contact" },
 ];
 

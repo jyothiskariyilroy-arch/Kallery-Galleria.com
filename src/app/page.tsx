@@ -8,6 +8,7 @@ import TrustBuilders from "@/components/TrustBuilders";
 import FloorBreakdown from "@/components/FloorBreakdown";
 import Investment from "@/components/Investment";
 import Gallery from "@/components/Gallery";
+import Mockups from "@/components/Mockups";
 import Urgency from "@/components/Urgency";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
       <FloorBreakdown />
       <Investment />
       <Gallery />
+      <Mockups />
       <Urgency />
       <FinalCTA />
       <Footer />
