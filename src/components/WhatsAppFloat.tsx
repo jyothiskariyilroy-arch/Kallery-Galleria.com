@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
-  const href = `https://wa.me/919048480370?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20details.`;
+  const href = `https://wa.me/919495040824?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20details.`;
 
   return (
     <motion.div
