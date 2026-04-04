@@ -206,3 +206,36 @@
   0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
   50% { box-shadow: 0 0 0 12px rgba(201, 168, 76, 0); }
 }
+
+/* ---- Performance & Interaction Improvements ---- */
+
+/* Smoother button transitions */
+.btn-gold, .btn-outline-gold {
+  will-change: transform, box-shadow;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Image rendering quality */
+img {
+  -webkit-font-smoothing: antialiased;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Reduce layout shift on image load */
+[data-image-container] {
+  contain: layout style;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
+  transform: translateZ(0);
+}
+
+/* Gold divider fade */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.2) 30%, rgba(201,168,76,0.2) 70%, transparent 100%);
+  margin: 0 auto;
+  max-width: 600px;
+}
