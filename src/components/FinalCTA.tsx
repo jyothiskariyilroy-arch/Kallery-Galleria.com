@@ -50,13 +50,13 @@ export default function FinalCTA() {
           <div className="gold-line mb-9" />
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <motion.a href="tel:+919495040824" className="btn-gold"
+            <motion.a href="tel:+919048480370" className="btn-gold"
               whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(201,168,76,0.4)" }}
               whileTap={{ scale: 0.98 }}>
               Schedule Site Visit
             </motion.a>
             <motion.a
-              href="https://wa.me/919495040824?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20details."
+              href="https://wa.me/919048480370?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20details."
               target="_blank" rel="noopener noreferrer" className="btn-outline-gold"
               whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               Request Investment Details
