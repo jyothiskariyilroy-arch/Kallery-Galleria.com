@@ -106,13 +106,13 @@ export default function Mockups() {
           initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.6 }}>
           <p className="text-ivory/20 font-dm text-sm mb-6">Every floor is ready for immediate commercial operation — adaptable to your business.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a href="tel:+919495040824" className="btn-gold"
+            <motion.a href="tel:+919048480370" className="btn-gold"
               whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(201,168,76,0.4)" }}
               whileTap={{ scale: 0.98 }}>
               Schedule Site Visit
             </motion.a>
             <motion.a
-              href="https://wa.me/919495040824?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20the%20mockup%20deck."
+              href="https://wa.me/919048480370?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20the%20mockup%20deck."
               target="_blank" rel="noopener noreferrer" className="btn-outline-gold"
               whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               Request Full Mockup Deck
