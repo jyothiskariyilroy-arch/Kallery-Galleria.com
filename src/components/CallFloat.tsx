@@ -13,7 +13,7 @@ export default function CallFloat() {
       transition={{ delay: 2.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <a
-        href="tel:+919495040824"
+        href="tel:+919048480370"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="relative flex items-center gap-2.5 px-4 py-3 rounded-full glass-gold transition-all duration-300"
