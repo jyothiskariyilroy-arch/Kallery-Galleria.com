@@ -37,11 +37,11 @@ export const images = {
     `${BASE}/3rd-floor/2.jpg.jpg`,
   ],
   mockups: [
-    `${BASE}/mockups/1.jpg`,
-    `${BASE}/mockups/2.jpg`,
-    `${BASE}/mockups/3.jpg`,
-    `${BASE}/mockups/4.jpg`,
-    `${BASE}/mockups/5.jpg`,
-    `${BASE}/mockups/6.jpg`,
+    `${BASE}/mockups/1.jpg.png`,
+    `${BASE}/mockups/2.jpg.png`,
+    `${BASE}/mockups/3.jpg.png`,
+    `${BASE}/mockups/4.jpg.png`,
+    `${BASE}/mockups/5.jpg.png`,
+    `${BASE}/mockups/6.jpg.png`,
   ],
 };
