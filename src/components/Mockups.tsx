@@ -112,7 +112,7 @@ export default function Mockups() {
               Schedule Site Visit
             </motion.a>
             <motion.a
-              href="https://wa.me/919048480370?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20the%20mockup%20deck."
+              href="https://wa.me/919495040824?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20the%20mockup%20deck."
               target="_blank" rel="noopener noreferrer" className="btn-outline-gold"
               whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               Request Full Mockup Deck
