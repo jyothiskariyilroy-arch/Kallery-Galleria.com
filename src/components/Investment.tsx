@@ -66,7 +66,7 @@ export default function Investment() {
                 </div>
               ))}
             </div>
-            <a href="tel:+919495040824" className="btn-outline-gold inline-block mt-7 text-sm">
+            <a href="tel:+919048480370" className="btn-outline-gold inline-block mt-7 text-sm">
               Lease Enquiry
             </a>
           </motion.div>
@@ -102,7 +102,7 @@ export default function Investment() {
                 </div>
               ))}
             </div>
-            <a href="tel:+919495040824" className="btn-gold inline-block mt-7 text-sm">
+            <a href="tel:+919048480370" className="btn-gold inline-block mt-7 text-sm">
               Sale Enquiry
             </a>
           </motion.div>
