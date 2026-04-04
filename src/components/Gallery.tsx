@@ -98,7 +98,7 @@ export default function Gallery() {
         <motion.div className="mt-10 text-center"
           initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.55 }}>
           <motion.a
-            href="tel:+919495040824"
+            href="tel:+919048480370"
             className="btn-gold"
             whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(201,168,76,0.4)" }}
             whileTap={{ scale: 0.98 }}
