@@ -74,7 +74,7 @@ export default function Urgency() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <a href="tel:+919495040824" className="btn-gold">Call Now — +91 94950 40824</a>
+            <a href="tel:+919048480370" className="btn-gold">Call Now — +91 94950 40824</a>
           </div>
         </motion.div>
       </div>
