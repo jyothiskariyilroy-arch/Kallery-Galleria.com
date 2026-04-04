@@ -57,7 +57,7 @@ export default function StrategicEdge() {
         <motion.div className="mt-14 text-center"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.6 }}>
           <motion.a
-            href="https://wa.me/919495040824?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria."
+            href="https://wa.me/919048480370?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria."
             target="_blank" rel="noopener noreferrer" className="btn-outline-gold"
             whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
             WhatsApp Us Now
