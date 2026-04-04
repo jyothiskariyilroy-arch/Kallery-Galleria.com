@@ -76,7 +76,7 @@ export default function Hero() {
         <motion.div className="flex flex-col sm:flex-row gap-4 justify-center"
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
           <a href="tel:+919048480370" className="btn-gold">Schedule Site Visit</a>
-          <a href="https://wa.me/919048480370?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20the%20full%20investment%20deck."
+          <a href="https://wa.me/919495040824?text=Hi%2C%20I%27m%20interested%20in%20Kallery%20Galleria.%20Please%20share%20the%20full%20investment%20deck."
             target="_blank" rel="noopener noreferrer" className="btn-outline-gold">
             Get Full Investment Deck
           </a>
