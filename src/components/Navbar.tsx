@@ -45,7 +45,7 @@ export default function Navbar() {
         </div>
 
         <motion.a
-          href="tel:+919495040824"
+          href="tel:+919048480370"
           className="hidden md:inline-block btn-gold py-2.5 px-5 text-[0.6rem]"
           whileHover={{ scale: 1.03, boxShadow: "0 6px 24px rgba(201,168,76,0.35)" }}
           whileTap={{ scale: 0.98 }}>
@@ -74,7 +74,7 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href="tel:+919495040824" className="btn-gold mt-2 text-center">Call Now</a>
+          <a href="tel:+919048480370" className="btn-gold mt-2 text-center">Call Now</a>
         </div>
       </motion.div>
     </motion.nav>
