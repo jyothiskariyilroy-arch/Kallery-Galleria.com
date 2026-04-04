@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Contacts */}
           <div className="flex flex-col gap-2 text-right">
             <a href="tel:+919495040824" className="font-cormorant text-xl text-gold/80 hover:text-gold transition-colors">
-              +91 94950 40824
+             +919048480370
             </a>
             <a href="tel:+918289830824" className="font-cormorant text-xl text-ivory/30 hover:text-ivory/60 transition-colors">
               +91 82898 30824
