@@ -5,10 +5,42 @@ import { useRef, useState } from "react";
 
 // ─── Floor-wise data ───────────────────────────────────────────────
 const floors = [
-  { id: "ground", label: "Ground Floor", area: "~4,000 sq ft", tag: "Street Level", best: "Supermarket · Showroom · Bank" },
-  { id: "first",  label: "1st Floor",    area: "~4,000 sq ft", tag: "First Level",  best: "Healthcare · Diagnostics · Restaurant" },
-  { id: "second", label: "2nd Floor",    area: "~4,000 sq ft", tag: "Second Level", best: "Office · Training Institute · Corporate" },
-  { id: "third",  label: "3rd Floor",    area: "Varies",        tag: "Top Level",    best: "F&B · Events · Premium Office" },
+  {
+    id: "ground",
+    label: "Ground Floor",
+    area: "~4,000 sq ft",
+    tag: "Street Level",
+    best: "Supermarket · Showroom · Bank",
+    rent: "₹1.15L",
+    deposit: "₹25 Lakhs",
+  },
+  {
+    id: "first",
+    label: "1st Floor",
+    area: "~4,000 sq ft",
+    tag: "First Level",
+    best: "Healthcare · Diagnostics · Restaurant",
+    rent: "₹65K",
+    deposit: "₹20 Lakhs",
+  },
+  {
+    id: "second",
+    label: "2nd Floor",
+    area: "~4,000 sq ft",
+    tag: "Second Level",
+    best: "Office · Training Institute · Corporate",
+    rent: "₹60K",
+    deposit: "₹10 Lakhs",
+  },
+  {
+    id: "third",
+    label: "3rd Floor",
+    area: "Varies",
+    tag: "Top Level",
+    best: "F&B · Events · Premium Office",
+    rent: "₹40K",
+    deposit: "₹5 Lakhs",
+  },
 ];
 
 const floorLeaseOptions = [
@@ -80,33 +112,41 @@ function FloorCard({ floor, index, isOpen, onToggle }: {
   onToggle: () => void;
 }) {
   return (
-    <motion.div
-      className={`glass rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isOpen ? "border-gold/25" : "hover:border-gold/15"}`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.08 + 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {/* Header — always visible */}
-      <div
-        className="flex items-center justify-between p-7 select-none"
-        onClick={onToggle}
-      >
-        <div className="flex items-center gap-5">
-          <div>
-            <p className="label opacity-35 mb-0.5">{floor.tag}</p>
-            <h3 className="font-cormorant text-2xl text-ivory/90">{floor.label}</h3>
-            <p className="font-dm text-xs text-ivory/30 mt-1">{floor.area} · {floor.best}</p>
-          </div>
-        </div>
-        <motion.div
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="text-gold/50 text-xl leading-none shrink-0 ml-4"
-        >
-          +
-        </motion.div>
-      </div>
+   <motion.div
+  className={`glass rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isOpen ? "border-gold/25" : "hover:border-gold/15"}`}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: index * 0.08 + 0.1, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+>
+  {/* Header — always visible */}
+  <div
+    className="flex items-center justify-between p-7 select-none"
+    onClick={onToggle}
+  >
+    <div className="flex items-center gap-5">
+      <div>
+        <p className="label opacity-35 mb-0.5">{floor.tag}</p>
+        <h3 className="font-cormorant text-2xl text-ivory/90">{floor.label}</h3>
+        
+        <p className="font-dm text-xs text-ivory/30 mt-1">
+          {floor.area} · {floor.best}
+        </p>
 
+        {/* ✅ ADDED PRICE LINE */}
+        <p className="text-gold text-sm mt-2 font-medium">
+          {floor.rent} / month · Deposit {floor.deposit}
+        </p>
+
+      </div>
+    </div>
+    <motion.div
+      animate={{ rotate: isOpen ? 45 : 0 }}
+      transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+      className="text-gold/50 text-xl leading-none shrink-0 ml-4"
+    >
+      +
+    </motion.div>
+  </div>
       {/* Expanded content */}
       <AnimatePresence initial={false}>
         {isOpen && (
