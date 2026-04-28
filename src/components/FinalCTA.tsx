@@ -38,9 +38,9 @@ export default function FinalCTA() {
           initial={{ opacity: 0, y: 28 }} animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
           <p className="label mb-2 opacity-40">Direct Contact</p>
-          <a href="tel:+919495040824"
+          <a href="tel:+919048480370"
             className="font-cormorant text-4xl md:text-5xl gold-shimmer font-light block mb-1.5 hover:opacity-75 transition-opacity duration-300">
-            +91 94950 40824
+            +91 90484 80370
           </a>
           <a href="tel:+918289830824"
             className="font-cormorant text-2xl text-ivory/35 font-light block mb-9 hover:text-ivory/55 transition-colors duration-300">

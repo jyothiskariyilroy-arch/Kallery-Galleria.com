@@ -4,6 +4,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { images } from "@/lib/images";
+import ImageLoader from "./ImageLoader";
 
 const floors = [
   {
@@ -40,31 +41,29 @@ const floors = [
   },
 ];
 
-function FloorImage({ src, alt }: { src: string; alt: string }) {
+function FloorImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
-  if (error) {
-    return (
-      <div className="img-placeholder w-full h-full flex flex-col items-center justify-center gap-2">
-        <div className="text-gold/20 text-3xl">◈</div>
-      </div>
-    );
-  }
-
   return (
-    <>
-      {!loaded && (
-        <div className="absolute inset-0 img-placeholder animate-pulse" />
+    <div className={`relative rounded-xl overflow-hidden bg-obsidian-800 group ${className}`}>
+      {!loaded && !error && <ImageLoader />}
+      {!error && (
+        <Image
+          src={src} alt={alt} fill
+          className={`object-cover transition-all duration-500 group-hover:scale-[1.03] ${loaded ? "opacity-100" : "opacity-0"}`}
+          unoptimized
+          onLoad={() => setLoaded(true)}
+          onError={() => setError(true)}
+        />
       )}
-      <Image
-        src={src} alt={alt} fill
-        className={`object-cover transition-all duration-700 group-hover:scale-[1.03] ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"}`}
-        unoptimized
-        onLoad={() => setLoaded(true)}
-        onError={() => setError(true)}
-      />
-    </>
+      {error && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-gold/15 text-2xl">◈</span>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/30 to-transparent pointer-events-none" />
+    </div>
   );
 }
 
@@ -77,11 +76,8 @@ export default function FloorBreakdown() {
     <section ref={ref} id="floors" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-10" />
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-
-        {/* Header */}
         <div className="mb-14">
-          <motion.p className="label mb-4"
-            initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}>
+          <motion.p className="label mb-4" initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}>
             The Property
           </motion.p>
           <motion.h2
@@ -93,91 +89,61 @@ export default function FloorBreakdown() {
           </motion.h2>
         </div>
 
-        {/* Floor tabs */}
-        <motion.div
-          className="flex gap-2 mb-10 flex-wrap"
+        <motion.div className="flex gap-2 mb-10 flex-wrap"
           initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.25 }}>
           {floors.map((f, i) => (
-            <button
-              key={f.id}
-              onClick={() => setActiveFloor(i)}
+            <button key={f.id} onClick={() => setActiveFloor(i)}
               className={`px-5 py-2.5 rounded-full font-mono text-[0.62rem] uppercase tracking-widest transition-all duration-300 ${
                 activeFloor === i
                   ? "bg-gold text-obsidian-950 font-bold shadow-lg"
                   : "glass text-ivory/40 hover:text-ivory/70 hover:border-gold/20"
-              }`}
-            >
+              }`}>
               {f.label}
             </button>
           ))}
         </motion.div>
 
-        {/* Floor panels */}
         <AnimatePresence mode="wait">
-          {floors.map((floor, fi) =>
-            activeFloor === fi ? (
-              <motion.div
-                key={floor.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="grid lg:grid-cols-2 gap-8 items-start">
-
-                  {/* Images — no text overlays */}
-                  <div className="grid grid-cols-2 gap-3">
-                    {floor.images.slice(0, 4).map((src, i) => (
-                      <div
-                        key={src}
-                        className={`relative rounded-xl overflow-hidden bg-obsidian-800 group ${i === 0 ? "col-span-2 h-64" : "h-44"}`}
-                      >
-                        <FloorImage src={src} alt={`${floor.label} view ${i + 1}`} />
-                        {/* Subtle gradient only — no text overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/30 to-transparent pointer-events-none" />
+          {floors.map((floor, fi) => activeFloor === fi ? (
+            <motion.div key={floor.id}
+              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
+              <div className="grid lg:grid-cols-2 gap-8 items-start">
+                <div className="grid grid-cols-2 gap-3">
+                  {floor.images.slice(0, 4).map((src, i) => (
+                    <FloorImage key={src} src={src} alt={`${floor.label} view ${i + 1}`}
+                      className={i === 0 ? "col-span-2 h-64" : "h-44"} />
+                  ))}
+                </div>
+                <div className="lg:pl-4">
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="label opacity-50">{floor.tag}</span>
+                    <div className="gold-line flex-1" />
+                  </div>
+                  <h3 className="font-cormorant text-4xl md:text-5xl font-light text-ivory mb-2">{floor.label}</h3>
+                  <p className="text-ivory/40 font-dm text-sm leading-relaxed mb-7">{floor.idealFor}</p>
+                  <div className="space-y-3 mb-8">
+                    {[
+                      { label: "Built-up Area", value: floor.area },
+                      { label: "Ceiling", value: floor.ceiling },
+                      { label: "Access", value: floor.access },
+                      { label: "Suited For", value: floor.best },
+                    ].map(spec => (
+                      <div key={spec.label} className="flex items-start gap-4 py-2 border-b border-white/[0.04]">
+                        <span className="label opacity-35 w-28 shrink-0 mt-0.5">{spec.label}</span>
+                        <span className="text-ivory/65 font-dm text-sm">{spec.value}</span>
                       </div>
                     ))}
                   </div>
-
-                  {/* Info */}
-                  <div className="lg:pl-4">
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="label opacity-50">{floor.tag}</span>
-                      <div className="gold-line flex-1" />
-                    </div>
-
-                    <h3 className="font-cormorant text-4xl md:text-5xl font-light text-ivory mb-2">{floor.label}</h3>
-                    <p className="text-ivory/40 font-dm text-sm leading-relaxed mb-7">{floor.idealFor}</p>
-
-                    {/* Specs */}
-                    <div className="space-y-3 mb-8">
-                      {[
-                        { label: "Built-up Area", value: floor.area },
-                        { label: "Ceiling", value: floor.ceiling },
-                        { label: "Access", value: floor.access },
-                        { label: "Suited For", value: floor.best },
-                      ].map(spec => (
-                        <div key={spec.label} className="flex items-start gap-4 py-2 border-b border-white/[0.04]">
-                          <span className="label opacity-35 w-28 shrink-0 mt-0.5">{spec.label}</span>
-                          <span className="text-ivory/65 font-dm text-sm">{spec.value}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <motion.a
-                      href="tel:+919048480370"
-                      className="btn-gold inline-block"
-                      whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(201,168,76,0.4)" }}
-                      whileTap={{ scale: 0.98 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      Enquire About This Floor
-                    </motion.a>
-                  </div>
+                  <motion.a href="tel:+919048480370" className="btn-gold inline-block"
+                    whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(201,168,76,0.4)" }}
+                    whileTap={{ scale: 0.98 }} transition={{ duration: 0.2 }}>
+                    Enquire About This Floor
+                  </motion.a>
                 </div>
-              </motion.div>
-            ) : null
-          )}
+              </div>
+            </motion.div>
+          ) : null)}
         </AnimatePresence>
       </div>
     </section>
